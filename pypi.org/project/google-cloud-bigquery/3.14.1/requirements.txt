@@ -1,0 +1,5 @@
+google-cloud-bigquery==3.14.1
+
+# to_dataframe
+pandas==2.1.4
+db-dtypes==1.2.0
