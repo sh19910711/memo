@@ -12,11 +12,20 @@ int main() {
   cin.tie(0);
 
   loop {
-    // ri(n);
-    // rin(a,n);
+    ri(n);
+    string s; cin >> s;
 
     [&]() {
-      cout << "none" << endl;
+      int_t dp[n];
+      int nx[26];
+      dp[n-1] = 1;
+      fill(nx, nx+26, n);
+      nx[s[n-1]-'a'] = n-1;
+      per(i,n) if(i<n-1) {
+        dp[i] = dp[i+1] + (nx[s[i]-'a'] - i);
+        nx[s[i]-'a'] = i;
+      }
+      cout << dp[0] << endl;
     }();
   }
 
