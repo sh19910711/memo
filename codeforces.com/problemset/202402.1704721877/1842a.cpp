@@ -16,19 +16,25 @@ int main() {
   loop {
     // ri(n);
     // rin(a,n);
+    // auto f = [&](int x) -> int { return x; };
+    // tuple<int,string> x(42, "foo"); auto [t1, t2] = x;
+    ri(n, m);
+    rin(a,n);
+    rin(b,m);
 
     [&]() {
-      cout << "none" << endl;
+      // int_t sa = 0; rep(i,n) sa += a[i];
+      int_t sa = reduce(a,a+n);
+      int_t sb = 0; rep(i,m) sb += b[i];
+      if (sa > sb) {
+        cout << "Tsondu" << endl;
+      } else if (sb > sa) {
+        cout << "Tenzing" << endl;
+      } else {
+        cout << "Draw" << endl;
+      }
     }();
   }
 
   return 0;
 }
-
-/***
-auto f = [&](int x) -> int { return x; };
-tuple<int,string> x(42, "foo"); auto [t1, t2] = x;
-
-flags: -Wall -Wextra -Wshadow -D_GLIBCXX_ASSERTIONS -DDEBUG -ggdb3 -fmax-errors=2 -std=c++17
-https://codeforces.com/blog/entry/79024
-***/

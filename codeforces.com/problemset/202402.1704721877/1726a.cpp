@@ -16,19 +16,19 @@ int main() {
   loop {
     // ri(n);
     // rin(a,n);
+    // auto f = [&](int x) -> int { return x; };
+    // tuple<int,string> x(42, "foo"); auto [t1, t2] = x;
+    ri(n);
+    rin(a,n);
 
     [&]() {
-      cout << "none" << endl;
+      int_t res=0;
+      rep(i,n) if(i>0) res=max(res, a[i]-a[0]);
+      rep(i,n) if(i<n-1) res=max(res, a[n-1]-a[i]);
+      rep(i,n) if(i+1<n) res=max(res,a[i]-a[i+1]);
+      cout << res << endl;
     }();
   }
 
   return 0;
 }
-
-/***
-auto f = [&](int x) -> int { return x; };
-tuple<int,string> x(42, "foo"); auto [t1, t2] = x;
-
-flags: -Wall -Wextra -Wshadow -D_GLIBCXX_ASSERTIONS -DDEBUG -ggdb3 -fmax-errors=2 -std=c++17
-https://codeforces.com/blog/entry/79024
-***/

@@ -16,19 +16,32 @@ int main() {
   loop {
     // ri(n);
     // rin(a,n);
+    // auto f = [&](int x) -> int { return x; };
+    // tuple<int,string> x(42, "foo"); auto [t1, t2] = x;
+    ri(n);
+    tuple<int_t, int_t> x[n]; rep(i,n) {
+      ri(a, b);
+      if (a > b) swap(a, b);
+      x[i] = make_tuple(b, a);
+    }
+    sort(x, x+n);
 
     [&]() {
-      cout << "none" << endl;
+      int_t res = 0;
+      rep(i,n) {
+        auto [_, a] = x[i];
+        res += 2 * a;
+      }
+      rep(i,n) if(i+1<n) {
+        auto [b1, _1] = x[i];
+        auto [b2, _2] = x[i+1];
+        res += b2 - b1;
+      }
+      res += get<0>(x[0]);
+      res += get<0>(x[n-1]);
+      cout << res << endl;
     }();
   }
 
   return 0;
 }
-
-/***
-auto f = [&](int x) -> int { return x; };
-tuple<int,string> x(42, "foo"); auto [t1, t2] = x;
-
-flags: -Wall -Wextra -Wshadow -D_GLIBCXX_ASSERTIONS -DDEBUG -ggdb3 -fmax-errors=2 -std=c++17
-https://codeforces.com/blog/entry/79024
-***/
