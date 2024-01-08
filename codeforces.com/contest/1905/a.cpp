@@ -7,7 +7,6 @@ template <class ...Args> auto& __ri(Args &...args) { return (cin >> ... >> args)
 #define ri(...) int_t __VA_ARGS__; __ri(__VA_ARGS__)
 #define rin(arr,num) int_t arr[num]; rep(i,num) cin >> arr[i]
 typedef long long int_t;
-typedef vector<int_t> vi;
 
 int main() {
   ios::sync_with_stdio(false);
@@ -18,9 +17,10 @@ int main() {
     // rin(a,n);
     // auto f = [&](int x) -> int { return x; };
     // tuple<int,string> x(42, "foo"); auto [t1, t2] = x;
+    ri(n, m);
 
     [&]() {
-      cout << "none" << endl;
+      cout << max(n, m) << endl;
     }();
   }
 

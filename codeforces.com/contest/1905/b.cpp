@@ -18,9 +18,18 @@ int main() {
     // rin(a,n);
     // auto f = [&](int x) -> int { return x; };
     // tuple<int,string> x(42, "foo"); auto [t1, t2] = x;
+    ri(n);
+    vi G[n];
+    rep(i,n-1) {
+      ri(s, t);
+      G[s-1].push_back(t-1);
+      G[t-1].push_back(s-1);
+    }
 
     [&]() {
-      cout << "none" << endl;
+      int cnt = 0;
+      rep(i,n) if(G[i].size()==1) cnt++;
+      cout << (cnt+1)/2 << endl;
     }();
   }
 
