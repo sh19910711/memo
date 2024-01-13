@@ -14,8 +14,19 @@ int main() {
   cin.tie(0);
 
   loop {
-    // ri(n); rin(a,n);
-    cout << "none" << endl;
+    ri(n); rin(a,n);
+    int_t b[n];
+    rep(i,n) b[i] = a[i+1]-a[i];
+    rep(i,n)if(i%2!=0) b[i]=0;
+    if(n%2==0) {
+      if (reduce(b,b+n) >= 0) {
+        cout << "YES" << endl;
+      } else {
+        cout << "NO" << endl;
+      }
+    } else {
+      cout << "YES" << endl;
+    }
   }
 
   return 0;

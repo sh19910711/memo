@@ -14,8 +14,18 @@ int main() {
   cin.tie(0);
 
   loop {
-    // ri(n); rin(a,n);
-    cout << "none" << endl;
+    ri(n);
+    int_t res=0;
+    int_t max_a=0,min_a=0,max_b=0,min_b=0;
+    rep(i,n) {
+      ri(a, b);
+      max_a = max(max_a, a);
+      max_b = max(max_b, b);
+      min_a = min(min_a, a);
+      min_b = min(min_b, b);
+    }
+    res = (abs(max_a) + abs(min_a) + abs(max_b) + abs(min_b)) * 2;
+    cout << res << endl;
   }
 
   return 0;

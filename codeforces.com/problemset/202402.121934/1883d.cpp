@@ -12,10 +12,32 @@ typedef vector<int_t> vi;
 int main() {
   ios::sync_with_stdio(false);
   cin.tie(0);
+    
+  multiset<int_t, greater<int_t>> sl;
+  multiset<int_t> sr;
 
   loop {
-    // ri(n); rin(a,n);
-    cout << "none" << endl;
+    string s; int_t l, r; cin >> s >> l >> r;
+
+    if(s == "+") {
+      sl.insert(l);
+      sr.insert(r);
+    } else if (s == "-") {
+      sl.erase(sl.find(l));
+      sr.erase(sr.find(r));
+    }
+
+    [&]() {
+      if (sl.size() < 2) {
+        cout << "NO" << endl;
+        return;
+      }
+      if (*sl.begin() <= *sr.begin()) {
+        cout << "NO" << endl;
+        return;
+      }
+      cout << "YES" << endl;
+    }();
   }
 
   return 0;

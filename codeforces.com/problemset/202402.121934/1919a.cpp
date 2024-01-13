@@ -14,8 +14,12 @@ int main() {
   cin.tie(0);
 
   loop {
-    // ri(n); rin(a,n);
-    cout << "none" << endl;
+    ri(a, b);
+    if ((a+b) % 2 == 0) {
+      cout << "Bob" << endl;
+    } else {
+      cout << "Alice" << endl;
+    }
   }
 
   return 0;

@@ -14,8 +14,36 @@ int main() {
   cin.tie(0);
 
   loop {
-    // ri(n); rin(a,n);
-    cout << "none" << endl;
+    ri(m);
+    const int N = 50000+1;
+    int b[N];
+    fill(b, b+N, -1);
+
+    set<int_t> bb;
+    rep(i,m) {
+      ri(an);
+      rep(j,an) {
+        ri(aij);
+        b[aij] = max(b[aij], i);
+        bb.insert(aij);
+      }
+    }
+
+    int_t s[m];
+    fill(s, s+m, -1);
+    for (auto bi : bb) {
+      s[b[bi]] = bi;
+    }
+
+    [&]() {
+      rep(i,m) if(s[i] == -1) {
+        cout << -1 << endl;
+        return;
+      }
+
+      rep(i,m) cout << s[i] << " ";
+      cout << endl;
+    }();
   }
 
   return 0;
