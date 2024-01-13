@@ -18,8 +18,22 @@ int main() {
   cin.tie(0);
 
   loop {
-    // ri(n); rin(a,n);
-    cout << "none" << endl;
+    ri(n); rin(a,n);
+    // dbgvec(vi(a,a+n));
+
+    int_t res=0;
+    vi d; rep(k,n+1) if(k>0 && n%k==0) d.push_back(k);
+
+    // dbg(div);
+    for(auto k:d) {
+      int_t m=0;
+      rep(i,n) if(i+k<n) m=__gcd(m, abs(a[i]-a[i+k]));
+      if(m != 1) {
+        // dbg(k); dbg(m);
+        res++;
+      }
+    }
+    cout << res << endl;
   }
 
   return 0;

@@ -19,7 +19,26 @@ int main() {
 
   loop {
     // ri(n); rin(a,n);
-    cout << "none" << endl;
+    ri(n,k,x); rin(a,n); sort(a,a+n,greater<int_t>());
+
+    int_t s[n+1];
+    s[0] = 0;
+    rep(i,n) s[i+1]=s[i]+a[i];
+    // dbgvec(vi(s,s+n)); dbg(s[n-1]);
+
+    int_t res=-1e10;
+    rep(i,k+1) {
+      int_t cur=s[n];
+      // dbg(i); dbg(s[i]);
+      cur -= s[i];
+      // dbg(s[min(n, i+x)] - s[i]);
+      int_t tmp = s[min(n, i+x)] - s[i];
+      // dbg(tmp);
+      cur -= tmp;
+      // dbg(cur); dbg(cur-tmp);
+      res = max(res, cur-tmp);
+    }
+    cout << res << endl;
   }
 
   return 0;

@@ -19,7 +19,16 @@ int main() {
 
   loop {
     // ri(n); rin(a,n);
-    cout << "none" << endl;
+    ri(n);
+    int_t a[n], x[n]; rep(i,n) cin>>a[i]>>x[i];
+    int_t l=0, r=1e9+1;
+    rep(i,n)if(a[i]==1) l=max(l, x[i]);
+    rep(i,n)if(a[i]==2) r=min(r, x[i]);
+    int_t s[n]; int sn=0; rep(i,n)if(a[i]==3) s[sn++] = x[i]; sort(s,s+sn);
+    // dbg(l); dbg(r);
+    [&]() {
+      cout << max(0LL, r-l+1 - (upper_bound(s,s+sn,r)-lower_bound(s,s+sn,l))) << endl;
+    }();
   }
 
   return 0;
